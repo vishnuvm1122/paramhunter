@@ -1,9 +1,27 @@
-# Username Brute Force Tool (pwntools Version)
+# 🔐 Brute Force Tools (pwntools Version)
 
-## 📌 Overview
+> ⚠️ For Educational & Authorized Testing Only
 
-This project is a Python-based multi-threaded username/password brute-force script built using pwntools.  
-It is intended for educational purposes and authorized penetration testing labs such as TryHackMe or HackTheBox.
+This repository contains two Python-based multi-threaded brute-force scripts built using **pwntools**:
+
+- `username_brute.py`
+- `password_brute.py`
+
+Designed for:
+- TryHackMe Labs
+- HackTheBox Labs
+- Personal lab environments
+- Authorized penetration testing
+
+---
+
+## 📌 Features
+
+- Remote TCP connection handling
+- Multi-threading support
+- Wordlist automation (SecLists)
+- Response-based authentication detection
+- Lightweight and easy to configure
 
 ---
 
@@ -11,58 +29,36 @@ It is intended for educational purposes and authorized penetration testing labs 
 
 - Python 3.8+
 - pwntools
-- SecLists (for wordlists)
-- Linux/Kali recommended
+- SecLists wordlists
+- Linux / Kali Linux (Recommended)
 
 ---
 
-## 🚀 Setup & Installation
+## 🚀 Installation
 
-### 1️⃣ Check Python Version
+### 1️⃣ Clone the Repository
 
-python3 --version
+```bash
+git clone https://github.com/yourusername/bruteforce-tools.git
+cd bruteforce-tools
 
-
-Make sure you are using Python 3.8 or higher.
-
----
-
-### 2️⃣ Create Virtual Environment (Recommended)
+2️⃣ Create Virtual Environment (Recommended)
 
 python3 -m venv venv
 source venv/bin/activate
 
-
-Using a virtual environment is recommended for Kali/Linux systems.
-
----
-
-### 3️⃣ Install pwntools
-
-If you have a `requirements.txt` file:
-
-pip install -r requirements.txt
-
-
-Or install directly:
+3️⃣ Install Dependencies
 
 pip install pwntools
 
+Or if using requirements.txt:
 
-### Verify Installation
+pip install -r requirements.txt
 
-python3 -c "from pwn import remote; print('pwntools working')"
+⚙️ Configuration
 
+Open the script and modify:
 
-If no error appears, installation is successful ✅
-
----
-
-## ⚙️ Configure Script Settings
-
-Open your script file and verify:
-
-```python
 target_ip = "10.10.98.190"
 target_port = 8000
 wordlist = "/usr/share/seclists/Passwords/500-worst-passwords.txt"
@@ -73,72 +69,60 @@ Make sure:
 
     Target port is correct
 
-    Wordlist file exists
+    Wordlist exists
 
-Check Wordlist Path
-
-ls /usr/share/seclists/Passwords/500-worst-passwords.txt
-
-If not installed:
+📂 Install SecLists (If Not Installed)
 
 sudo apt install seclists
 
-▶️ Run the Script
+Verify:
+
+ls /usr/share/seclists/Passwords/500-worst-passwords.txt
+
+▶️ Usage
+Run Username Brute Force
 
 python3 username_brute.py
 
-Or make it executable:
+Run Password Brute Force
 
-chmod +x username_brute.py
-./username_brute.py
+python3 password_brute.py
 
-🔥 Common Errors & Fixes
+🔥 Common Errors
 ❌ ModuleNotFoundError: No module named 'pwn'
-
-Solution:
 
 pip install pwntools
 
 ❌ Connection Refused
 
-Possible reasons:
+Possible Causes:
 
     Target machine is down
 
-    Wrong port number
+    Wrong port
 
-    Firewall blocking connection
+    Firewall blocking
 
-Check connectivity:
+Test connection:
 
 nc -nv 10.10.98.190 8000
 
 ❌ Timeout Issues
 
-You may need to increase timeout inside the script:
+Increase timeout inside script:
 
-r.recvline(timeout=1)
+r.recvline(timeout=2)
 
-Increase the timeout value if network latency is high.
-⚠️ Important Notice
+⚠️ Legal Disclaimer
 
-This tool must only be used in:
+This project is strictly for:
 
-    TryHackMe labs
+    Educational purposes
 
-    HackTheBox labs
+    Authorized security testing
 
-    Your own lab environment
+    Lab environments
 
-    Authorized penetration testing engagements
+Unauthorized use against systems without explicit permission is illegal.
 
-Do NOT use this tool on systems or networks without explicit permission.
-📜 Disclaimer
-
-This project is created strictly for educational and authorized security testing purposes. The author is not responsible for misuse of this tool.
-
-
----
-
-Tell me your goal (internship / job / pentesting career) 🚀
-
+The author is not responsible for misuse of this tool.
