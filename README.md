@@ -136,3 +136,9 @@ Do NOT use this tool on systems or networks without explicit permission.
 📜 Disclaimer
 
 This project is created strictly for educational and authorized security testing purposes. The author is not responsible for misuse of this tool.
+
+
+---
+
+Tell me your goal (internship / job / pentesting career) 🚀
+
